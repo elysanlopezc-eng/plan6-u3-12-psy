@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Plan - Conflict Resolution & Professional Communication (ESL B2-C1)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        montanoBlue: '#1269A8',
+                        montanoYellow: '#F7D615',
+                        montanoGreen: '#54887D',
+                        montanoLightBlue: '#88B5C7',
+                        montanoOlive: '#A6B046',
+                        montanoBg: '#F2F5E9',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #F2F5E9;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col overflow-x-hidden">
+
+    <!-- Top Navigation / Header with Fullscreen Button & Logo -->
+    <header class="bg-montanoBlue text-white shadow-md px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+        <div class="flex items-center space-x-4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyEop0yf6lZ7Jk9MILZxF1rBj4Oqs5esyhIQ&s" alt="Colegio Montano Logo" class="h-12 w-12 rounded-full bg-white object-contain p-1 shadow" onerror="this.src='https://placehold.co/50x50/1269A8/FFFFFF?text=CM'">
+            <div>
+                <h1 class="text-lg md:text-xl font-bold">Colegio Montano | Interactive Digital Whiteboard</h1>
+                <p class="text-xs md:text-sm text-montanoLightBlue">12th Mercadotecnia | ESL B2-C1 | Plan 6, Unit 3 | Teacher: Elysa López</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <span class="text-xs bg-montanoGreen px-3 py-1.5 rounded-full font-medium text-white shadow-sm">
+                <i class="fa-solid fa-calendar-days mr-1"></i> Unit 3 Plan 6
+            </span>
+            <button onclick="toggleFullScreen()" class="bg-montanoYellow text-gray-900 px-4 py-2 rounded-lg font-bold text-sm shadow hover:bg-yellow-400 transition flex items-center gap-2">
+                <i class="fa-solid fa-expand"></i> Fullscreen
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col gap-6">
+
+        <!-- Header Pedagogical Overview Card -->
+        <section class="bg-white rounded-2xl shadow-md p-5 border-l-8 border-montanoBlue">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-montanoBlue mb-1">Main Topic</h2>
+                    <p class="text-base font-semibold text-gray-800">Conflict Resolution and Professional Communication</p>
+                </div>
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-montanoGreen mb-1">Competency & Learning Outcome</h2>
+                    <p class="text-xs text-gray-700 leading-relaxed"><strong>Competency:</strong> Resolves workplace friction through active listening, assertive communication, and collaborative negotiation strategies. <br><strong>Outcome:</strong> Identifies conflict sources, practices assertive mediation, role-plays marketing disagreements, and completes a conflict-resolution plan.</p>
+                </div>
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-montanoOlive mb-1">Montano Habits & Soft Skills</h2>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                        <span class="text-[10px] bg-montanoBg text-montanoBlue font-bold px-2 py-0.5 rounded border border-montanoLightBlue">Seek First to Understand</span>
+                        <span class="text-[10px] bg-montanoBg text-montanoGreen font-bold px-2 py-0.5 rounded border border-montanoGreen">Think Win-Win</span>
+                        <span class="text-[10px] bg-montanoBg text-gray-700 font-bold px-2 py-0.5 rounded border border-gray-300">Synergize</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Tabs Navigation -->
+        <nav class="flex flex-wrap gap-2 border-b border-gray-300 pb-2">
+            <button onclick="switchTab('tab1')" id="btn-tab1" class="tab-btn px-4 py-2.5 rounded-t-lg font-semibold text-sm transition flex items-center gap-2 bg-montanoBlue text-white shadow">
+                <i class="fa-solid fa-bolt"></i> I) Conflict Prompt (~5m)
+            </button>
+            <button onclick="switchTab('tab2')" id="btn-tab2" class="tab-btn px-4 py-2.5 rounded-t-lg font-semibold text-sm transition flex items-center gap-2 bg-white text-gray-700 hover:bg-montanoLightBlue hover:text-white">
+                <i class="fa-solid fa-comments"></i> II) Sources & Active Listening (15m)
+            </button>
+            <button onclick="switchTab('tab3')" id="btn-tab3" class="tab-btn px-4 py-2.5 rounded-t-lg font-semibold text-sm transition flex items-center gap-2 bg-white text-gray-700 hover:bg-montanoLightBlue hover:text-white">
+                <i class="fa-solid fa-users-gear"></i> III) Role-Play & Styles (30m)
+            </button>
+            <button onclick="switchTab('tab4')" id="btn-tab4" class="tab-btn px-4 py-2.5 rounded-t-lg font-semibold text-sm transition flex items-center gap-2 bg-white text-gray-700 hover:bg-montanoLightBlue hover:text-white">
+                <i class="fa-solid fa-clipboard-check"></i> IV) Conflict Resolution Plan (20m)
+            </button>
+        </nav>
+
+        <!-- Tab I: Conflict Prompt -->
+        <div id="tab1" class="tab-content flex flex-col gap-4">
+            <div class="bg-white rounded-xl shadow p-6 border-t-4 border-montanoYellow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-montanoYellow text-xl"></i> Fictional Workplace Conflict Prompt (5 minutes)
+                    </h3>
+                    <span class="text-xs bg-yellow-100 text-yellow-800 font-bold px-3 py-1 rounded-full">Scenario Hook</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-montanoBg p-5 rounded-xl border border-montanoLightBlue">
+                        <h4 class="font-bold text-montanoBlue text-base mb-2"><i class="fa-solid fa-triangle-exclamation mr-1"></i> The Marketing Disagreement</h4>
+                        <p class="text-gray-700 italic text-sm mb-4 leading-relaxed">"Two senior copywriters in a branding agency disagree strongly: Ana wants to launch a bold, controversial social media campaign to spike engagement, while Carlos argues it risks alienating corporate clients and damaging long-term trust."</p>
+                        <p class="text-xs text-gray-600">How should the team lead or mediator handle this professional friction before it impacts productivity?</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-blue-50 rounded-lg border border-blue-100 flex items-start gap-3">
+                            <i class="fa-solid fa-bullseye text-montanoBlue mt-1"></i>
+                            <div>
+                                <h5 class="font-bold text-sm text-gray-800">Session Goal</h5>
+                                <p class="text-xs text-gray-600">Master interpersonal communication styles, analyze conflict origins, and execute structured negotiation methods.</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-100 flex items-start gap-3">
+                            <i class="fa-solid fa-seedling text-montanoGreen mt-1"></i>
+                            <div>
+                                <h5 class="font-bold text-sm text-gray-800">Montano Habit</h5>
+                                <p class="text-xs text-gray-600"><strong>Seek First to Understand, Then Be Understood:</strong> Listening for underlying interests rather than locked-in positions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab II: Sources & Active Listening (15 min) -->
+        <div id="tab2" class="tab-content hidden flex flex-col gap-4">
+            <div class="bg-white rounded-xl shadow p-6 border-t-4 border-montanoBlue">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-comments text-montanoBlue text-xl"></i> Sources of Conflict & Active Listening (15 minutes)
+                    </h3>
+                    <span class="text-xs bg-blue-100 text-montanoBlue font-bold px-3 py-1 rounded-full">Core Theory</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-montanoBlue mb-2"><i class="fa-solid fa-fire-flame-curved mr-1"></i> Common Workplace Conflict Sources</h4>
+                        <ul class="text-xs text-gray-700 space-y-2">
+                            <li><strong>Resource Scarcity:</strong> Competing budgets, creative tools, or tight deadlines.</li>
+                            <li><strong>Role Ambiguity:</strong> Unclear task ownership between departments (e.g., Sales vs. Marketing).</li>
+                            <li><strong>Personality & Communication Clashes:</strong> Direct vs. indirect communication styles.</li>
+                            <li><strong>Goal Divergence:</strong> Short-term viral metrics vs. long-term brand equity.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-montanoGreen mb-2"><i class="fa-solid fa-ear-listen mr-1"></i> Active & Assertive Communication</h4>
+                        <ul class="text-xs text-gray-700 space-y-2">
+                            <li><strong>Active Listening:</strong> Paraphrasing colleague statements without interrupting ("So what you're saying is...").</li>
+                            <li><strong>Assertive Statements:</strong> Using "I" statements ("I feel concerned when timelines shift because...") rather than blame ("You always delay").</li>
+                            <li><strong>Respectful Feedback:</strong> Separating the person from the creative problem.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Guidance Accordion -->
+                <div class="border border-montanoLightBlue rounded-xl overflow-hidden">
+                    <button onclick="toggleAccordion('solutionAccordion')" class="w-full bg-montanoBg px-4 py-3 text-left font-bold text-montanoBlue flex justify-between items-center hover:bg-emerald-50 transition">
+                        <span><i class="fa-solid fa-eye mr-2"></i> Teacher’s Guidance & B2-C1 ESL Vocabulary</span>
+                        <i id="accordionIcon" class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div id="solutionAccordion" class="hidden p-4 bg-white text-xs text-gray-700 space-y-2 border-t border-montanoLightBlue">
+                        <p><strong>Advanced Lexicon:</strong> <em>Interpersonal friction, constructive divergence, framing, mediation, emotional escalation, underlying interests.</em></p>
+                        <p>• Emphasize how poor communication turns task-oriented disagreements into destructive emotional conflicts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab III: Role-Play & Styles (30 min) -->
+        <div id="tab3" class="tab-content hidden flex flex-col gap-4">
+            <div class="bg-white rounded-xl shadow p-6 border-t-4 border-montanoGreen">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-users-gear text-montanoGreen text-xl"></i> Role-Play & Conflict Handling Styles (30 minutes)
+                    </h3>
+                    <span class="text-xs bg-emerald-100 text-montanoGreen font-bold px-3 py-1 rounded-full">Interactive Practice</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-montanoBg p-5 rounded-xl border border-montanoLightBlue">
+                        <h4 class="font-bold text-montanoBlue mb-3"><i class="fa-solid fa-chess-board mr-1"></i> The 5 Conflict Handling Styles (Thomas-Kilmann)</h4>
+                        <div class="space-y-2 text-xs text-gray-700">
+                            <div class="bg-white p-2 rounded shadow-sm"><strong>Avoiding:</strong> Ignoring or postponing conflict (low assertiveness, low cooperation).</div>
+                            <div class="bg-white p-2 rounded shadow-sm"><strong>Accommodating:</strong> Yielding to the other party's wishes (low assertiveness, high cooperation).</div>
+                            <div class="bg-white p-2 rounded shadow-sm"><strong>Competing:</strong> Forcing one's own solution (high assertiveness, low cooperation).</div>
+                            <div class="bg-white p-2 rounded shadow-sm"><strong>Compromising:</strong> Splitting the difference; mutual concessions (moderate both).</div>
+                            <div class="bg-white p-2 rounded shadow-sm"><strong>Collaborating:</strong> Finding a win-win integration of both needs (high assertiveness, high cooperation).</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2"><i class="fa-solid fa-masks-theater mr-1"></i> Team Role-Play Task</h4>
+                            <p class="text-xs text-gray-700 mb-3">In pairs, role-play the marketing disagreement between Ana (creative risk-taker) and Carlos (brand safety advocate):</p>
+                            <ul class="text-xs text-gray-600 space-y-1.5 list-disc list-inside">
+                                <li><strong>Round 1:</strong> Reenact a competing/arguing dynamic. Notice emotional buildup.</li>
+                                <li><strong>Round 2:</strong> Reenact a collaborating dynamic using active listening and interest-based negotiation to find a hybrid campaign model.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 p-3 bg-emerald-50 rounded border border-emerald-100 text-[11px] text-montanoGreen font-medium">
+                            <i class="fa-solid fa-seedling mr-1"></i> <strong>Montano Habit:</strong> Think Win-Win (Creating marketing solutions that satisfy both creativity and safety).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab IV: Conflict Resolution Plan (20 min) -->
+        <div id="tab4" class="tab-content hidden flex flex-col gap-4">
+            <div class="bg-white rounded-xl shadow p-6 border-t-4 border-montanoOlive">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-check text-montanoOlive text-xl"></i> Conflict-Resolution Plan & Evaluation (20 minutes)
+                    </h3>
+                    <span class="text-xs bg-lime-100 text-montanoOlive font-bold px-3 py-1 rounded-full">Summative Output</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-2">Team Resolution Document (10 min)</h4>
+                        <p class="text-xs text-gray-700 mb-3">Draft a 4-step conflict resolution protocol for your professional marketing agency portfolio:</p>
+                        <div class="space-y-2">
+                            <button onclick="triggerTriviaModal('Why is collaboration often superior to compromise in creative teams?', 'Because compromise forces both sides to give up part of their vision, whereas collaboration seeks innovative alternatives that fully satisfy core goals.')" class="w-full text-left text-xs bg-white p-2.5 rounded border border-gray-300 hover:bg-montanoBg transition font-medium">
+                                ❓ Challenge: Collaboration vs. Compromise
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-2">Exit Reflection (10 min)</h4>
+                        <p class="text-xs text-gray-700 mb-3">Individual written reflection submitted prior to conclusion:</p>
+                        <ul class="text-xs text-gray-600 space-y-1.5 list-disc list-inside">
+                            <li>Which of the five conflict styles is your default, and how can you practice flexibility?</li>
+                            <li>How does emotional regulation prevent professional disagreements from damaging team synergy?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Interactive Evaluation Rubric -->
+                <div class="bg-white p-4 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-3"><i class="fa-solid fa-list-check text-montanoGreen mr-2"></i> Plenary & Evaluation Checklist</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left text-gray-700 border border-gray-200">
+                            <thead class="bg-montanoBg text-montanoBlue uppercase font-semibold">
+                                <tr>
+                                    <th class="p-2.5 border-b">Evaluation Criteria</th>
+                                    <th class="p-2.5 border-b text-center">Exceeds (4)</th>
+                                    <th class="p-2.5 border-b text-center">Proficient (3)</th>
+                                    <th class="p-2.5 border-b text-center">In Progress (2)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2.5 border-b font-medium">1. Conflict Source Analysis</td>
+                                    <td class="p-2.5 border-b text-center">Deep diagnosis of underlying structural/personal causes</td>
+                                    <td class="p-2.5 border-b text-center">Identifies primary source correctly</td>
+                                    <td class="p-2.5 border-b text-center">Superficial conflict identification</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="p-2.5 border-b font-medium">2. Active Listening & Assertiveness</td>
+                                    <td class="p-2.5 border-b text-center">Flawless demonstration of framing & listening</td>
+                                    <td class="p-2.5 border-b text-center">Uses clear assertive statements</td>
+                                    <td class="p-2.5 border-b text-center">Relies on defensive communication</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-medium">3. Resolution & Strategy Plan</td>
+                                    <td class="p-2.5 text-center">Comprehensive collaborative win-win framework</td>
+                                    <td class="p-2.5 text-center">Solid negotiation strategy</td>
+                                    <td class="p-2.5 text-center">Incomplete protocol</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Custom Modal for Interactive Prompts -->
+    <div id="triviaModal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border-t-8 border-montanoBlue">
+            <h3 id="modalTitle" class="text-lg font-bold text-gray-800 mb-2">Interactive Reflection</h3>
+            <p id="modalBody" class="text-sm text-gray-600 mb-6 leading-relaxed"></p>
+            <div class="flex justify-end">
+                <button onclick="closeTriviaModal()" class="bg-montanoBlue text-white px-5 py-2 rounded-lg font-bold text-sm shadow hover:bg-sky-700 transition">
+                    Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-montanoBlue', 'text-white', 'shadow');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('bg-white', 'text-gray-700');
+            activeBtn.classList.add('bg-montanoBlue', 'text-white', 'shadow');
+        }
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('accordionIcon');
+            el.classList.toggle('hidden');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.error("Error attempting to enable full-screen mode:", err.message);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        function triggerTriviaModal(title, body) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = body;
+            document.getElementById('triviaModal').classList.remove('hidden');
+        }
+
+        function closeTriviaModal() {
+            document.getElementById('triviaModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
